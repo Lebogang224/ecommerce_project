@@ -1,0 +1,18 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Welcome to the E-Commerce Website!</h1>
+<p>Explore our products below:</p>
+<ul>
+    {% for product in products %}
+        <li>
+            <strong>{{ product.name }}</strong> - ${{ product.price }}<br>
+            <img src="{{ product.image_url }}" alt="{{ product.name }}" style="max-width: 100px;">
+            <a href="{{ url_for('product_detail', id=product.id) }}" class="btn btn-primary">View Details</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
